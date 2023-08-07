@@ -1,1 +1,1 @@
-APIKEY = "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"
+APIKEY = "OpenAIkey"
