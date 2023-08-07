@@ -16,7 +16,6 @@ os.environ["OPENAI_API_KEY"] = constants.APIKEY
 
 # Enable to cache & reuse the model to disk (for repeated queries on the same data)
 PERSIST = False
-query = 'ما هو اسمي'
 query = sys.argv[1]
 
 if PERSIST and os.path.exists("persist"):
@@ -25,10 +24,6 @@ if PERSIST and os.path.exists("persist"):
   from langchain.indexes.vectorstore import VectorStoreIndexWrapper
   index = VectorStoreIndexWrapper(vectorstore=vectorstore)
 else:
-  # txt = 'اسمي حسن'
-  # with open('data.txt', "w",  encoding='utf-32') as file:
-  #       file.write(txt)
-
   loader = TextLoader('data.txt',  encoding='utf-32')
   # This code can also import folders, including various filetypes like PDFs using the DirectoryLoader.
   # loader = DirectoryLoader(".", glob="*.txt")
